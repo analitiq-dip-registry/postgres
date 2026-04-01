@@ -29,3 +29,4 @@ None required.
 - PostgreSQL supports two connection string formats: keyword/value and URI (`postgresql://` or `postgres://`).
 - Port must be an integer.
 - No API rate limits apply -- this is a direct database connection.
+- The user must have `USAGE` privilege on each schema they need to access.

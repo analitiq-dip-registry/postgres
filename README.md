@@ -1,3 +1,5 @@
+![Status: Verified](https://img.shields.io/badge/status-verified-brightgreen)
+
 # PostgreSQL
 
 Open-source relational database management system (RDBMS) known for reliability, feature robustness, and performance. PostgreSQL supports advanced data types, full ACID compliance, and extensibility, making it a popular choice for web applications, analytics, and geospatial workloads.
@@ -56,6 +58,7 @@ PostgreSQL uses standard database credentials (username and password) to authent
 
 - **SSL mode** -- Defaults to `prefer`, which attempts encrypted connections but falls back to unencrypted if the server does not support SSL. Set to `require` or higher for enforced encryption. For production, `verify-ca` or `verify-full` is recommended.
 - **No rate limits** -- This is a direct database connection; no API rate limits apply. However, heavy queries may impact database performance.
+- **Schema access** -- The user must have `USAGE` privilege on each schema they need to access. By default, only `public` is accessible.
 
 ## For AI agents
 
