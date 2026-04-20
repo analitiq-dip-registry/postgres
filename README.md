@@ -25,7 +25,7 @@ All connectors are open source and free to use. To get started:
 3. Launch Claude in the root directory of `analitiq-core`
 4. Tell it: *"I need to move data from X to Y"*
 
-The `analitiq-plugin-dataflow` plugin will automatically fetch the required connectors from the [Analitiq Skill Registry](https://github.com/analitiq-dip-registry) and set up the data flow pipeline for you.
+The `analitiq-plugin-dataflow` plugin will automatically fetch the required connectors from the [Analitiq DIP Registry](https://github.com/analitiq-dip-registry) and set up the data flow pipeline for you.
 
 ## Prerequisites
 
