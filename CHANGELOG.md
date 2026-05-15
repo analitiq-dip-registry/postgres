@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.0.6] - 2026-05-15
+
+### Fixed
+- bug: re-add name/type to webhook payload from display_name/kind (#16)
+
 ## [0.0.5] - 2026-05-15
 
 ### Fixed
