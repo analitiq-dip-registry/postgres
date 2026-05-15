@@ -4,7 +4,7 @@
   "display_name": "PostgreSQL",
   "description": "Open-source relational database management system known for reliability, feature robustness, and performance",
   "documentation_url": "https://www.postgresql.org/docs/current/",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "default_transport": "database",
   "transports": {
     "database": {

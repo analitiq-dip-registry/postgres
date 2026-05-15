@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.0.5] - 2026-05-15
+
+### Fixed
+- bug: drop slug/name/type from Analitiq webhook payload (#15)
+
 ## [0.0.4] - 2026-05-15
 
 ### Fixed
