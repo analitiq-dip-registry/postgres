@@ -112,14 +112,19 @@ jobs:
           REPO: ${{ github.repository }}
           BUMP_TYPE: ${{ steps.bump.outputs.type }}
         run: |
+          CONNECTOR_NAME=$(jq -r '.display_name // ""' definition/connector.json)
+          CONNECTOR_TYPE=$(jq -r '.kind // ""' definition/connector.json)
+
           PAYLOAD=$(jq -n \
+            --arg name "$CONNECTOR_NAME" \
+            --arg type "$CONNECTOR_TYPE" \
             --arg repo "$REPO" \
             --arg version "$NEW_VERSION" \
             --arg tag "$RELEASE_TAG" \
             --arg release_url "$RELEASE_URL" \
             --arg published_at "$RELEASE_PUBLISHED_AT" \
             --arg bump "$BUMP_TYPE" \
-            '{repo: $repo, version: $version, tag: $tag, release_url: $release_url, published_at: $published_at, bump: $bump}')
+            '{name: $name, type: $type, repo: $repo, version: $version, tag: $tag, release_url: $release_url, published_at: $published_at, bump: $bump}')
 
           curl --fail-with-body --silent --show-error \
             -X POST "$WEBHOOK_URL" \
