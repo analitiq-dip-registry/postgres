@@ -1,146 +1,636 @@
-[
-  { "match": "exact", "native": "BOOLEAN", "canonical": "Boolean" },
-  { "match": "exact", "native": "BOOL", "canonical": "Boolean" },
-
-  { "match": "exact", "native": "SMALLINT", "canonical": "Int16" },
-  { "match": "exact", "native": "INT2", "canonical": "Int16" },
-  { "match": "exact", "native": "SMALLSERIAL", "canonical": "Int16" },
-  { "match": "exact", "native": "SERIAL2", "canonical": "Int16" },
-  { "match": "exact", "native": "INTEGER", "canonical": "Int32" },
-  { "match": "exact", "native": "INT", "canonical": "Int32" },
-  { "match": "exact", "native": "INT4", "canonical": "Int32" },
-  { "match": "exact", "native": "SERIAL", "canonical": "Int32" },
-  { "match": "exact", "native": "SERIAL4", "canonical": "Int32" },
-  { "match": "exact", "native": "BIGINT", "canonical": "Int64" },
-  { "match": "exact", "native": "INT8", "canonical": "Int64" },
-  { "match": "exact", "native": "BIGSERIAL", "canonical": "Int64" },
-  { "match": "exact", "native": "SERIAL8", "canonical": "Int64" },
-
-  { "match": "exact", "native": "REAL", "canonical": "Float32" },
-  { "match": "exact", "native": "FLOAT4", "canonical": "Float32" },
-  { "match": "exact", "native": "DOUBLE PRECISION", "canonical": "Float64" },
-  { "match": "exact", "native": "FLOAT8", "canonical": "Float64" },
-  { "match": "regex", "native": "^FLOAT\\((?:[1-9]|1[0-9]|2[0-4])\\)$", "canonical": "Float32" },
-  { "match": "regex", "native": "^FLOAT(?:\\((?:2[5-9]|[34][0-9]|5[0-3])\\))?$", "canonical": "Float64" },
-
-  { "match": "regex", "native": "^(?:NUMERIC|DECIMAL)\\((?:[0-9],\\s*[0-9]{2,}|[0-9]{2},\\s*[0-9]{3,})\\)$", "canonical": "Utf8" },
-  { "match": "regex", "native": "^(?:NUMERIC|DECIMAL)\\((?:0,\\s*[1-9]|1,\\s*[2-9]|2,\\s*[3-9]|3,\\s*[4-9]|4,\\s*[5-9]|5,\\s*[6-9]|6,\\s*[7-9]|7,\\s*[89]|8,\\s*9)\\)$", "canonical": "Utf8" },
-  { "match": "regex", "native": "^(?:NUMERIC|DECIMAL)\\((?:1[0-9],\\s*[2-9][0-9]|2[0-9],\\s*[3-9][0-9]|3[0-9],\\s*[4-9][0-9]|4[0-9],\\s*[5-9][0-9]|5[0-9],\\s*[6-9][0-9]|6[0-9],\\s*[7-9][0-9]|7[0-9],\\s*[89][0-9]|8[0-9],\\s*9[0-9])\\)$", "canonical": "Utf8" },
-  { "match": "regex", "native": "^(?:NUMERIC|DECIMAL)\\(1(?:0,\\s*1[1-9]|1,\\s*1[2-9]|2,\\s*1[3-9]|3,\\s*1[4-9]|4,\\s*1[5-9]|5,\\s*1[6-9]|6,\\s*1[7-9]|7,\\s*1[89]|8,\\s*19)\\)$", "canonical": "Utf8" },
-  { "match": "regex", "native": "^(?:NUMERIC|DECIMAL)\\(2(?:0,\\s*2[1-9]|1,\\s*2[2-9]|2,\\s*2[3-9]|3,\\s*2[4-9]|4,\\s*2[5-9]|5,\\s*2[6-9]|6,\\s*2[7-9]|7,\\s*2[89]|8,\\s*29)\\)$", "canonical": "Utf8" },
-  { "match": "regex", "native": "^(?:NUMERIC|DECIMAL)\\(3(?:0,\\s*3[1-9]|1,\\s*3[2-9]|2,\\s*3[3-9]|3,\\s*3[4-9]|4,\\s*3[5-9]|5,\\s*3[6-9]|6,\\s*3[7-9]|7,\\s*3[89]|8,\\s*39)\\)$", "canonical": "Utf8" },
-  { "match": "regex", "native": "^(?:NUMERIC|DECIMAL)\\(4(?:0,\\s*4[1-9]|1,\\s*4[2-9]|2,\\s*4[3-9]|3,\\s*4[4-9]|4,\\s*4[5-9]|5,\\s*4[6-9]|6,\\s*4[7-9]|7,\\s*4[89]|8,\\s*49)\\)$", "canonical": "Utf8" },
-  { "match": "regex", "native": "^(?:NUMERIC|DECIMAL)\\(5(?:0,\\s*5[1-9]|1,\\s*5[2-9]|2,\\s*5[3-9]|3,\\s*5[4-9]|4,\\s*5[5-9]|5,\\s*5[6-9]|6,\\s*5[7-9]|7,\\s*5[89]|8,\\s*59)\\)$", "canonical": "Utf8" },
-  { "match": "regex", "native": "^(?:NUMERIC|DECIMAL)\\(6(?:0,\\s*6[1-9]|1,\\s*6[2-9]|2,\\s*6[3-9]|3,\\s*6[4-9]|4,\\s*6[5-9]|5,\\s*6[6-9]|6,\\s*6[7-9]|7,\\s*6[89]|8,\\s*69)\\)$", "canonical": "Utf8" },
-  { "match": "regex", "native": "^(?:NUMERIC|DECIMAL)\\(7(?:0,\\s*7[1-9]|1,\\s*7[2-9]|2,\\s*7[3-9]|3,\\s*7[4-9]|4,\\s*7[5-9]|5,\\s*7[6-9]|6,\\s*7[7-9]|7,\\s*7[89]|8,\\s*79)\\)$", "canonical": "Utf8" },
-  { "match": "regex", "native": "^(?:NUMERIC|DECIMAL)\\(8(?:0,\\s*8[1-9]|1,\\s*8[2-9]|2,\\s*8[3-9]|3,\\s*8[4-9]|4,\\s*8[5-9]|5,\\s*8[6-9]|6,\\s*8[7-9]|7,\\s*8[89]|8,\\s*89)\\)$", "canonical": "Utf8" },
-  { "match": "regex", "native": "^(?:NUMERIC|DECIMAL)\\(9(?:0,\\s*9[1-9]|1,\\s*9[2-9]|2,\\s*9[3-9]|3,\\s*9[4-9]|4,\\s*9[5-9]|5,\\s*9[6-9]|6,\\s*9[7-9]|7,\\s*9[89]|8,\\s*99)\\)$", "canonical": "Utf8" },
-  { "match": "regex", "native": "^(?:NUMERIC|DECIMAL)\\((?<precision>[1-9]|[12][0-9]|3[0-8]),\\s*(?<scale>[0-9]|[12][0-9]|3[0-8])\\)$", "canonical": "Decimal128(${precision}, ${scale})" },
-  { "match": "regex", "native": "^(?:NUMERIC|DECIMAL)\\((?<precision>39|[4-6][0-9]|7[0-6]),\\s*(?<scale>[0-9]|[1-6][0-9]|7[0-6])\\)$", "canonical": "Decimal256(${precision}, ${scale})" },
-  { "match": "regex", "native": "^(?:NUMERIC|DECIMAL)\\((?<precision>[1-9]|[12][0-9]|3[0-8])\\)$", "canonical": "Decimal128(${precision}, 0)" },
-  { "match": "regex", "native": "^(?:NUMERIC|DECIMAL)\\((?<precision>39|[4-6][0-9]|7[0-6])\\)$", "canonical": "Decimal256(${precision}, 0)" },
-  { "match": "regex", "native": "^(?:NUMERIC|DECIMAL)\\([0-9]+(?:,\\s*-?[0-9]+)?\\)$", "canonical": "Utf8" },
-  { "match": "regex", "native": "^(?:NUMERIC|DECIMAL)$", "canonical": "Utf8" },
-  { "match": "exact", "native": "MONEY", "canonical": "Utf8" },
-
-  { "match": "exact", "native": "TEXT", "canonical": "Utf8" },
-  { "match": "regex", "native": "^CHARACTER VARYING(?:\\([0-9]+\\))?$", "canonical": "Utf8" },
-  { "match": "regex", "native": "^VARCHAR(?:\\([0-9]+\\))?$", "canonical": "Utf8" },
-  { "match": "regex", "native": "^CHARACTER(?:\\([0-9]+\\))?$", "canonical": "Utf8" },
-  { "match": "regex", "native": "^CHAR(?:\\([0-9]+\\))?$", "canonical": "Utf8" },
-  { "match": "regex", "native": "^BPCHAR(?:\\([0-9]+\\))?$", "canonical": "Utf8" },
-  { "match": "exact", "native": "\"CHAR\"", "canonical": "Utf8" },
-  { "match": "exact", "native": "NAME", "canonical": "Utf8" },
-
-  { "match": "exact", "native": "BYTEA", "canonical": "Binary" },
-
-  { "match": "exact", "native": "DATE", "canonical": "Date32" },
-
-  { "match": "regex", "native": "^TIME\\(0\\)(?: WITHOUT TIME ZONE)?$", "canonical": "Time32(SECOND)" },
-  { "match": "regex", "native": "^TIME\\([1-3]\\)(?: WITHOUT TIME ZONE)?$", "canonical": "Time32(MILLISECOND)" },
-  { "match": "regex", "native": "^TIME(?:\\([4-6]\\))?(?: WITHOUT TIME ZONE)?$", "canonical": "Time64(MICROSECOND)" },
-  { "match": "regex", "native": "^TIME\\(0\\) WITH TIME ZONE$", "canonical": "Time32(SECOND)" },
-  { "match": "regex", "native": "^TIME\\([1-3]\\) WITH TIME ZONE$", "canonical": "Time32(MILLISECOND)" },
-  { "match": "regex", "native": "^TIME(?:\\([4-6]\\))? WITH TIME ZONE$", "canonical": "Time64(MICROSECOND)" },
-  { "match": "regex", "native": "^TIMETZ\\(0\\)$", "canonical": "Time32(SECOND)" },
-  { "match": "regex", "native": "^TIMETZ\\([1-3]\\)$", "canonical": "Time32(MILLISECOND)" },
-  { "match": "regex", "native": "^TIMETZ(?:\\([4-6]\\))?$", "canonical": "Time64(MICROSECOND)" },
-
-  { "match": "regex", "native": "^TIMESTAMP\\(0\\)(?: WITHOUT TIME ZONE)?$", "canonical": "Timestamp(SECOND)" },
-  { "match": "regex", "native": "^TIMESTAMP\\([1-3]\\)(?: WITHOUT TIME ZONE)?$", "canonical": "Timestamp(MILLISECOND)" },
-  { "match": "regex", "native": "^TIMESTAMP(?:\\([4-6]\\))?(?: WITHOUT TIME ZONE)?$", "canonical": "Timestamp(MICROSECOND)" },
-  { "match": "regex", "native": "^TIMESTAMP\\(0\\) WITH TIME ZONE$", "canonical": "Timestamp(SECOND, UTC)" },
-  { "match": "regex", "native": "^TIMESTAMP\\([1-3]\\) WITH TIME ZONE$", "canonical": "Timestamp(MILLISECOND, UTC)" },
-  { "match": "regex", "native": "^TIMESTAMP(?:\\([4-6]\\))? WITH TIME ZONE$", "canonical": "Timestamp(MICROSECOND, UTC)" },
-  { "match": "regex", "native": "^TIMESTAMPTZ\\(0\\)$", "canonical": "Timestamp(SECOND, UTC)" },
-  { "match": "regex", "native": "^TIMESTAMPTZ\\([1-3]\\)$", "canonical": "Timestamp(MILLISECOND, UTC)" },
-  { "match": "regex", "native": "^TIMESTAMPTZ(?:\\([4-6]\\))?$", "canonical": "Timestamp(MICROSECOND, UTC)" },
-
-  { "match": "regex", "native": "^INTERVAL(?: [A-Z]+(?: TO [A-Z]+)?)?(?: ?\\([0-6]\\))?$", "canonical": "Utf8" },
-
-  { "match": "exact", "native": "UUID", "canonical": "Utf8" },
-  { "match": "exact", "native": "JSON", "canonical": "Json" },
-  { "match": "exact", "native": "JSONB", "canonical": "Json" },
-  { "match": "exact", "native": "JSONPATH", "canonical": "Utf8" },
-  { "match": "exact", "native": "XML", "canonical": "Utf8" },
-
-  { "match": "exact", "native": "CIDR", "canonical": "Utf8" },
-  { "match": "exact", "native": "INET", "canonical": "Utf8" },
-  { "match": "exact", "native": "MACADDR", "canonical": "Utf8" },
-  { "match": "exact", "native": "MACADDR8", "canonical": "Utf8" },
-
-  { "match": "regex", "native": "^BIT VARYING(?:\\([0-9]+\\))?$", "canonical": "Utf8" },
-  { "match": "regex", "native": "^VARBIT(?:\\([0-9]+\\))?$", "canonical": "Utf8" },
-  { "match": "regex", "native": "^BIT(?:\\([0-9]+\\))?$", "canonical": "Utf8" },
-
-  { "match": "exact", "native": "TSVECTOR", "canonical": "Utf8" },
-  { "match": "exact", "native": "TSQUERY", "canonical": "Utf8" },
-
-  { "match": "exact", "native": "POINT", "canonical": "Utf8" },
-  { "match": "exact", "native": "LINE", "canonical": "Utf8" },
-  { "match": "exact", "native": "LSEG", "canonical": "Utf8" },
-  { "match": "exact", "native": "BOX", "canonical": "Utf8" },
-  { "match": "exact", "native": "PATH", "canonical": "Utf8" },
-  { "match": "exact", "native": "POLYGON", "canonical": "Utf8" },
-  { "match": "exact", "native": "CIRCLE", "canonical": "Utf8" },
-
-  { "match": "exact", "native": "INT4RANGE", "canonical": "Utf8" },
-  { "match": "exact", "native": "INT8RANGE", "canonical": "Utf8" },
-  { "match": "exact", "native": "NUMRANGE", "canonical": "Utf8" },
-  { "match": "exact", "native": "TSRANGE", "canonical": "Utf8" },
-  { "match": "exact", "native": "TSTZRANGE", "canonical": "Utf8" },
-  { "match": "exact", "native": "DATERANGE", "canonical": "Utf8" },
-  { "match": "exact", "native": "INT4MULTIRANGE", "canonical": "Utf8" },
-  { "match": "exact", "native": "INT8MULTIRANGE", "canonical": "Utf8" },
-  { "match": "exact", "native": "NUMMULTIRANGE", "canonical": "Utf8" },
-  { "match": "exact", "native": "TSMULTIRANGE", "canonical": "Utf8" },
-  { "match": "exact", "native": "TSTZMULTIRANGE", "canonical": "Utf8" },
-  { "match": "exact", "native": "DATEMULTIRANGE", "canonical": "Utf8" },
-
-  { "match": "exact", "native": "OID", "canonical": "UInt32" },
-  { "match": "exact", "native": "REGCLASS", "canonical": "Utf8" },
-  { "match": "exact", "native": "REGCOLLATION", "canonical": "Utf8" },
-  { "match": "exact", "native": "REGCONFIG", "canonical": "Utf8" },
-  { "match": "exact", "native": "REGDICTIONARY", "canonical": "Utf8" },
-  { "match": "exact", "native": "REGNAMESPACE", "canonical": "Utf8" },
-  { "match": "exact", "native": "REGOPER", "canonical": "Utf8" },
-  { "match": "exact", "native": "REGOPERATOR", "canonical": "Utf8" },
-  { "match": "exact", "native": "REGPROC", "canonical": "Utf8" },
-  { "match": "exact", "native": "REGPROCEDURE", "canonical": "Utf8" },
-  { "match": "exact", "native": "REGROLE", "canonical": "Utf8" },
-  { "match": "exact", "native": "REGTYPE", "canonical": "Utf8" },
-  { "match": "exact", "native": "XID", "canonical": "Utf8" },
-  { "match": "exact", "native": "XID8", "canonical": "Utf8" },
-  { "match": "exact", "native": "CID", "canonical": "Utf8" },
-  { "match": "exact", "native": "TID", "canonical": "Utf8" },
-  { "match": "exact", "native": "PG_LSN", "canonical": "Utf8" },
-  { "match": "exact", "native": "PG_SNAPSHOT", "canonical": "Utf8" },
-  { "match": "exact", "native": "TXID_SNAPSHOT", "canonical": "Utf8" },
-
-  { "match": "exact", "native": "ARRAY", "canonical": "Json" },
-  { "match": "regex", "native": "^.+\\[\\]$", "canonical": "Json" },
-  { "match": "regex", "native": "^.+\\[[0-9]+\\]$", "canonical": "Json" },
-  { "match": "regex", "native": "^.+ ARRAY(?:\\[[0-9]+\\])?$", "canonical": "Json" },
-
-  { "match": "exact", "native": "USER-DEFINED", "canonical": "Utf8" }
-]
+{
+  "$schema": "https://schemas.analitiq.ai/type-map-read/latest.json",
+  "direction": "read",
+  "rules": [
+    {
+      "match": "exact",
+      "native_type": "BOOLEAN",
+      "arrow_type": "Boolean"
+    },
+    {
+      "match": "exact",
+      "native_type": "BOOL",
+      "arrow_type": "Boolean"
+    },
+    {
+      "match": "exact",
+      "native_type": "SMALLINT",
+      "arrow_type": "Int16"
+    },
+    {
+      "match": "exact",
+      "native_type": "INT2",
+      "arrow_type": "Int16"
+    },
+    {
+      "match": "exact",
+      "native_type": "SMALLSERIAL",
+      "arrow_type": "Int16"
+    },
+    {
+      "match": "exact",
+      "native_type": "SERIAL2",
+      "arrow_type": "Int16"
+    },
+    {
+      "match": "exact",
+      "native_type": "INTEGER",
+      "arrow_type": "Int32"
+    },
+    {
+      "match": "exact",
+      "native_type": "INT",
+      "arrow_type": "Int32"
+    },
+    {
+      "match": "exact",
+      "native_type": "INT4",
+      "arrow_type": "Int32"
+    },
+    {
+      "match": "exact",
+      "native_type": "SERIAL",
+      "arrow_type": "Int32"
+    },
+    {
+      "match": "exact",
+      "native_type": "SERIAL4",
+      "arrow_type": "Int32"
+    },
+    {
+      "match": "exact",
+      "native_type": "BIGINT",
+      "arrow_type": "Int64"
+    },
+    {
+      "match": "exact",
+      "native_type": "INT8",
+      "arrow_type": "Int64"
+    },
+    {
+      "match": "exact",
+      "native_type": "BIGSERIAL",
+      "arrow_type": "Int64"
+    },
+    {
+      "match": "exact",
+      "native_type": "SERIAL8",
+      "arrow_type": "Int64"
+    },
+    {
+      "match": "exact",
+      "native_type": "REAL",
+      "arrow_type": "Float32"
+    },
+    {
+      "match": "exact",
+      "native_type": "FLOAT4",
+      "arrow_type": "Float32"
+    },
+    {
+      "match": "exact",
+      "native_type": "DOUBLE PRECISION",
+      "arrow_type": "Float64"
+    },
+    {
+      "match": "exact",
+      "native_type": "FLOAT8",
+      "arrow_type": "Float64"
+    },
+    {
+      "match": "regex",
+      "native_type": "^FLOAT\\((?:[1-9]|1[0-9]|2[0-4])\\)$",
+      "arrow_type": "Float32"
+    },
+    {
+      "match": "regex",
+      "native_type": "^FLOAT(?:\\((?:2[5-9]|[34][0-9]|5[0-3])\\))?$",
+      "arrow_type": "Float64"
+    },
+    {
+      "match": "regex",
+      "native_type": "^(?:NUMERIC|DECIMAL)\\((?:[0-9],\\s*[0-9]{2,}|[0-9]{2},\\s*[0-9]{3,})\\)$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "regex",
+      "native_type": "^(?:NUMERIC|DECIMAL)\\((?:0,\\s*[1-9]|1,\\s*[2-9]|2,\\s*[3-9]|3,\\s*[4-9]|4,\\s*[5-9]|5,\\s*[6-9]|6,\\s*[7-9]|7,\\s*[89]|8,\\s*9)\\)$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "regex",
+      "native_type": "^(?:NUMERIC|DECIMAL)\\((?:1[0-9],\\s*[2-9][0-9]|2[0-9],\\s*[3-9][0-9]|3[0-9],\\s*[4-9][0-9]|4[0-9],\\s*[5-9][0-9]|5[0-9],\\s*[6-9][0-9]|6[0-9],\\s*[7-9][0-9]|7[0-9],\\s*[89][0-9]|8[0-9],\\s*9[0-9])\\)$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "regex",
+      "native_type": "^(?:NUMERIC|DECIMAL)\\(1(?:0,\\s*1[1-9]|1,\\s*1[2-9]|2,\\s*1[3-9]|3,\\s*1[4-9]|4,\\s*1[5-9]|5,\\s*1[6-9]|6,\\s*1[7-9]|7,\\s*1[89]|8,\\s*19)\\)$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "regex",
+      "native_type": "^(?:NUMERIC|DECIMAL)\\(2(?:0,\\s*2[1-9]|1,\\s*2[2-9]|2,\\s*2[3-9]|3,\\s*2[4-9]|4,\\s*2[5-9]|5,\\s*2[6-9]|6,\\s*2[7-9]|7,\\s*2[89]|8,\\s*29)\\)$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "regex",
+      "native_type": "^(?:NUMERIC|DECIMAL)\\(3(?:0,\\s*3[1-9]|1,\\s*3[2-9]|2,\\s*3[3-9]|3,\\s*3[4-9]|4,\\s*3[5-9]|5,\\s*3[6-9]|6,\\s*3[7-9]|7,\\s*3[89]|8,\\s*39)\\)$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "regex",
+      "native_type": "^(?:NUMERIC|DECIMAL)\\(4(?:0,\\s*4[1-9]|1,\\s*4[2-9]|2,\\s*4[3-9]|3,\\s*4[4-9]|4,\\s*4[5-9]|5,\\s*4[6-9]|6,\\s*4[7-9]|7,\\s*4[89]|8,\\s*49)\\)$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "regex",
+      "native_type": "^(?:NUMERIC|DECIMAL)\\(5(?:0,\\s*5[1-9]|1,\\s*5[2-9]|2,\\s*5[3-9]|3,\\s*5[4-9]|4,\\s*5[5-9]|5,\\s*5[6-9]|6,\\s*5[7-9]|7,\\s*5[89]|8,\\s*59)\\)$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "regex",
+      "native_type": "^(?:NUMERIC|DECIMAL)\\(6(?:0,\\s*6[1-9]|1,\\s*6[2-9]|2,\\s*6[3-9]|3,\\s*6[4-9]|4,\\s*6[5-9]|5,\\s*6[6-9]|6,\\s*6[7-9]|7,\\s*6[89]|8,\\s*69)\\)$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "regex",
+      "native_type": "^(?:NUMERIC|DECIMAL)\\(7(?:0,\\s*7[1-9]|1,\\s*7[2-9]|2,\\s*7[3-9]|3,\\s*7[4-9]|4,\\s*7[5-9]|5,\\s*7[6-9]|6,\\s*7[7-9]|7,\\s*7[89]|8,\\s*79)\\)$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "regex",
+      "native_type": "^(?:NUMERIC|DECIMAL)\\(8(?:0,\\s*8[1-9]|1,\\s*8[2-9]|2,\\s*8[3-9]|3,\\s*8[4-9]|4,\\s*8[5-9]|5,\\s*8[6-9]|6,\\s*8[7-9]|7,\\s*8[89]|8,\\s*89)\\)$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "regex",
+      "native_type": "^(?:NUMERIC|DECIMAL)\\(9(?:0,\\s*9[1-9]|1,\\s*9[2-9]|2,\\s*9[3-9]|3,\\s*9[4-9]|4,\\s*9[5-9]|5,\\s*9[6-9]|6,\\s*9[7-9]|7,\\s*9[89]|8,\\s*99)\\)$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "regex",
+      "native_type": "^(?:NUMERIC|DECIMAL)\\((?<precision>[1-9]|[12][0-9]|3[0-8]),\\s*(?<scale>[0-9]|[12][0-9]|3[0-8])\\)$",
+      "arrow_type": "Decimal128(${precision}, ${scale})"
+    },
+    {
+      "match": "regex",
+      "native_type": "^(?:NUMERIC|DECIMAL)\\((?<precision>39|[4-6][0-9]|7[0-6]),\\s*(?<scale>[0-9]|[1-6][0-9]|7[0-6])\\)$",
+      "arrow_type": "Decimal256(${precision}, ${scale})"
+    },
+    {
+      "match": "regex",
+      "native_type": "^(?:NUMERIC|DECIMAL)\\((?<precision>[1-9]|[12][0-9]|3[0-8])\\)$",
+      "arrow_type": "Decimal128(${precision}, 0)"
+    },
+    {
+      "match": "regex",
+      "native_type": "^(?:NUMERIC|DECIMAL)\\((?<precision>39|[4-6][0-9]|7[0-6])\\)$",
+      "arrow_type": "Decimal256(${precision}, 0)"
+    },
+    {
+      "match": "regex",
+      "native_type": "^(?:NUMERIC|DECIMAL)\\([0-9]+(?:,\\s*-?[0-9]+)?\\)$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "regex",
+      "native_type": "^(?:NUMERIC|DECIMAL)$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "MONEY",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "TEXT",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "regex",
+      "native_type": "^CHARACTER VARYING(?:\\([0-9]+\\))?$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "regex",
+      "native_type": "^VARCHAR(?:\\([0-9]+\\))?$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "regex",
+      "native_type": "^CHARACTER(?:\\([0-9]+\\))?$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "regex",
+      "native_type": "^CHAR(?:\\([0-9]+\\))?$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "regex",
+      "native_type": "^BPCHAR(?:\\([0-9]+\\))?$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "\"CHAR\"",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "NAME",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "BYTEA",
+      "arrow_type": "Binary"
+    },
+    {
+      "match": "exact",
+      "native_type": "DATE",
+      "arrow_type": "Date32"
+    },
+    {
+      "match": "regex",
+      "native_type": "^TIME\\(0\\)(?: WITHOUT TIME ZONE)?$",
+      "arrow_type": "Time32(SECOND)"
+    },
+    {
+      "match": "regex",
+      "native_type": "^TIME\\([1-3]\\)(?: WITHOUT TIME ZONE)?$",
+      "arrow_type": "Time32(MILLISECOND)"
+    },
+    {
+      "match": "regex",
+      "native_type": "^TIME(?:\\([4-6]\\))?(?: WITHOUT TIME ZONE)?$",
+      "arrow_type": "Time64(MICROSECOND)"
+    },
+    {
+      "match": "regex",
+      "native_type": "^TIME\\(0\\) WITH TIME ZONE$",
+      "arrow_type": "Time32(SECOND)"
+    },
+    {
+      "match": "regex",
+      "native_type": "^TIME\\([1-3]\\) WITH TIME ZONE$",
+      "arrow_type": "Time32(MILLISECOND)"
+    },
+    {
+      "match": "regex",
+      "native_type": "^TIME(?:\\([4-6]\\))? WITH TIME ZONE$",
+      "arrow_type": "Time64(MICROSECOND)"
+    },
+    {
+      "match": "regex",
+      "native_type": "^TIMETZ\\(0\\)$",
+      "arrow_type": "Time32(SECOND)"
+    },
+    {
+      "match": "regex",
+      "native_type": "^TIMETZ\\([1-3]\\)$",
+      "arrow_type": "Time32(MILLISECOND)"
+    },
+    {
+      "match": "regex",
+      "native_type": "^TIMETZ(?:\\([4-6]\\))?$",
+      "arrow_type": "Time64(MICROSECOND)"
+    },
+    {
+      "match": "regex",
+      "native_type": "^TIMESTAMP\\(0\\)(?: WITHOUT TIME ZONE)?$",
+      "arrow_type": "Timestamp(SECOND)"
+    },
+    {
+      "match": "regex",
+      "native_type": "^TIMESTAMP\\([1-3]\\)(?: WITHOUT TIME ZONE)?$",
+      "arrow_type": "Timestamp(MILLISECOND)"
+    },
+    {
+      "match": "regex",
+      "native_type": "^TIMESTAMP(?:\\([4-6]\\))?(?: WITHOUT TIME ZONE)?$",
+      "arrow_type": "Timestamp(MICROSECOND)"
+    },
+    {
+      "match": "regex",
+      "native_type": "^TIMESTAMP\\(0\\) WITH TIME ZONE$",
+      "arrow_type": "Timestamp(SECOND, UTC)"
+    },
+    {
+      "match": "regex",
+      "native_type": "^TIMESTAMP\\([1-3]\\) WITH TIME ZONE$",
+      "arrow_type": "Timestamp(MILLISECOND, UTC)"
+    },
+    {
+      "match": "regex",
+      "native_type": "^TIMESTAMP(?:\\([4-6]\\))? WITH TIME ZONE$",
+      "arrow_type": "Timestamp(MICROSECOND, UTC)"
+    },
+    {
+      "match": "regex",
+      "native_type": "^TIMESTAMPTZ\\(0\\)$",
+      "arrow_type": "Timestamp(SECOND, UTC)"
+    },
+    {
+      "match": "regex",
+      "native_type": "^TIMESTAMPTZ\\([1-3]\\)$",
+      "arrow_type": "Timestamp(MILLISECOND, UTC)"
+    },
+    {
+      "match": "regex",
+      "native_type": "^TIMESTAMPTZ(?:\\([4-6]\\))?$",
+      "arrow_type": "Timestamp(MICROSECOND, UTC)"
+    },
+    {
+      "match": "regex",
+      "native_type": "^INTERVAL(?: [A-Z]+(?: TO [A-Z]+)?)?(?: ?\\([0-6]\\))?$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "UUID",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "JSON",
+      "arrow_type": "Json"
+    },
+    {
+      "match": "exact",
+      "native_type": "JSONB",
+      "arrow_type": "Json"
+    },
+    {
+      "match": "exact",
+      "native_type": "JSONPATH",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "XML",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "CIDR",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "INET",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "MACADDR",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "MACADDR8",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "regex",
+      "native_type": "^BIT VARYING(?:\\([0-9]+\\))?$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "regex",
+      "native_type": "^VARBIT(?:\\([0-9]+\\))?$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "regex",
+      "native_type": "^BIT(?:\\([0-9]+\\))?$",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "TSVECTOR",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "TSQUERY",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "POINT",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "LINE",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "LSEG",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "BOX",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "PATH",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "POLYGON",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "CIRCLE",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "INT4RANGE",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "INT8RANGE",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "NUMRANGE",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "TSRANGE",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "TSTZRANGE",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "DATERANGE",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "INT4MULTIRANGE",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "INT8MULTIRANGE",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "NUMMULTIRANGE",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "TSMULTIRANGE",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "TSTZMULTIRANGE",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "DATEMULTIRANGE",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "OID",
+      "arrow_type": "UInt32"
+    },
+    {
+      "match": "exact",
+      "native_type": "REGCLASS",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "REGCOLLATION",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "REGCONFIG",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "REGDICTIONARY",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "REGNAMESPACE",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "REGOPER",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "REGOPERATOR",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "REGPROC",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "REGPROCEDURE",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "REGROLE",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "REGTYPE",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "XID",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "XID8",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "CID",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "TID",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "PG_LSN",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "PG_SNAPSHOT",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "TXID_SNAPSHOT",
+      "arrow_type": "Utf8"
+    },
+    {
+      "match": "exact",
+      "native_type": "ARRAY",
+      "arrow_type": "Json"
+    },
+    {
+      "match": "regex",
+      "native_type": "^.+\\[\\]$",
+      "arrow_type": "Json"
+    },
+    {
+      "match": "regex",
+      "native_type": "^.+\\[[0-9]+\\]$",
+      "arrow_type": "Json"
+    },
+    {
+      "match": "regex",
+      "native_type": "^.+ ARRAY(?:\\[[0-9]+\\])?$",
+      "arrow_type": "Json"
+    },
+    {
+      "match": "exact",
+      "native_type": "USER-DEFINED",
+      "arrow_type": "Utf8"
+    }
+  ]
+}
