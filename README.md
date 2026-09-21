@@ -92,7 +92,7 @@ Tables and views are discovered at runtime from `information_schema`; the `infor
 
 ## Type mapping
 
-Types are converted through `definition/type-map-read.json` (PostgreSQL to Arrow) and `definition/type-map-write.json` (Arrow to PostgreSQL DDL). Notable cases:
+Types are converted through `definition/type-map.json`: its `read` section (PostgreSQL to Arrow) and `write` section (Arrow to PostgreSQL DDL). Notable cases:
 
 | PostgreSQL | Arrow | Why |
 |---|---|---|

@@ -270,7 +270,8 @@
     }
   },
   "error_map": {
-    "sqlstate": {
+    "key_attrs": ["sqlstate"],
+    "codes": {
       "08000": "unreachable",
       "08001": "unreachable",
       "08003": "unreachable",
