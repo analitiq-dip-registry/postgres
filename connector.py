@@ -8,7 +8,7 @@ through its ``dialect_class``, not entry-point-resolved.
 Transports: ADBC (libpq, COPY-based Arrow ingestion - the default) and
 async SQLAlchemy (asyncpg - the engine-side SQL/metadata path). The
 write-direction type vocabulary lives entirely in
-``definition/type-map-write.json``; this module ships no Python
+the ``write`` section of ``definition/type-map.json``; this module ships no Python
 type-rendering table and carries only the structural dialect hooks the
 two transports require.
 

@@ -61,7 +61,7 @@ Driver wheels: `adbc-driver-postgresql`, `adbc-driver-manager`, `asyncpg`.
 
 ## Type mapping
 
-Read (`definition/type-map-read.json`) and write (`definition/type-map-write.json`) are separate documents. Cases that are not one-to-one:
+Read and write rules live in one document, `definition/type-map.json`, under its `read` and `write` sections. Cases that are not one-to-one:
 
 | PostgreSQL | Arrow | Reason |
 |---|---|---|
